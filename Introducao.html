@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Introdução - Prog. Web</title>
+        <meta name="description" content="Este é um site referênte à estudos de progamação web">
+    </head>
+    
+    <body>
+        <h1> Introdução - Prog. Web </h1>
+        <p>Se baseando nos conceitos de programação já adquiridos por um programador, como variáveis de sistema, loopings e estruturas de dados, podemos afirmar que existem 3 diferentes formas de realizar, de maneira mais rápida, uma tarefa com um programa, sendo elas:</p>
+        <ul>
+            <li>Trabalhar de maneira mais rápida - De forma que o algoritmo tenha um esqueleto simples e objetivo;</li>
+            <br>
+            <li>Trabalhar de maneira mais inteligente - De forma que o algoritmo se torne menos custoso;</li>
+            <br>
+            <li>Pedir ajuda - Ou trabalhar em conjunto, de forma que uma equipe se dedique na construção do programa.</li>
+        </ul>
+        <p>Geralmente, se tratando de um programa e uma máquina que executará este, podemos realizar este processo da seguinte forma:</p>
+        <ul>
+            <li>Aumentar a velocidadde de CPU - Tornando uma máquina mais potente para o processamento e execução do script;</li>
+            <br>
+            <li>Mudar o algoritmo - Torna-lo mais inteligente, dinâmico e menos propício a falhas;</li>
+            <br>
+            <li>Processamento paralelo e distribuido - Trabalhar com <i>threads</i> no programa.</li>
+        </ul>
+        <p>Diante disso, podemos considerar que a terceira opção pode ser muito bem trabalhada, onde um programa é considerado sequencial, quando este é visto como <strong>uma série de instruções sequenciais que devem ser executadas em um único processador</strong>, ou seja, neste caso, todos os comandos descritos no programa serão executados um após o outro, seguindo a ideia de uma linha ou fila de comandos, as quais são trabalhadas por apenas um processador. Veja a ilustração abaixo que representa essa ideia:</p>
+        <img  src = "https://danielatllas.github.io/ProgConcorrente/img1.png " >
+        <p>Percebemos então, que do programa, são enviados comando a comando para o processador executar, de forma sequencial. No caso da <strong>prog. concorrente</strong>, este conceito é alterado, onde: um programa é considerado concorrente, quando este é visto como <strong>um conjunto de partes de um programa que podem ser resolvidos paralelamente</strong>, ou seja, o script é dividido em partes igualmente constituidas por uma série de comandos sequênciais. Dessa forma, N processadores podem ser escalados para executar as N partes (<i><strong>threads</strong></i>) do programa. Veja o exemplo abaixo:</p>
+        <img  src = "https://danielatllas.github.io/ProgConcorrente/img2.png " >
+        <p>Perceba então que através da prog. concorrente e o auxílio de mais CPU's, o programa será executado <strong>Nx mais rápido</strong> que um programa sequencial.</p>
+        <p>Essas partes em que o programa foi dividido, são chamadas de <strong>threads</strong> ou partes contiguas, as quais podem ser executadas em <strong>qualquer ordem, sem alterar o resultado final</strong>, ou seja, partindo de um <i>"inicio()"</i>, as tarefas (<i>"meio()"</i>) podem ser executadas randomicamente, pois ao terminar, todas juntas entregarão o resultado <i>"final()"</i>.</p>
+        <p>Portanto, temos que na programação concorrente, <strong>um programa origina diferentes processos (<i>threads</i>) que irão interagir entre sí, para realizar alguma tarefa, com o uso simultaneo de recursos computacionais para resolver um problema.</strong>. Para uma melhor compreensão deste termos, seguiremos com a explicação direta de cada um a seguir:</p>
+        <ul>
+            <li><strong>Paralelismo</strong> - Processamento simultaneo físico;</li>
+            <br>
+            <li><strong>Concorrência</strong> - Processamento simultaneo lógico e que requer entreleçamento de ações;</li>
+            <br>
+            <li><strong>Processo</strong> - Execução de um programa ou série de comandos;</li>
+            <br>
+            <li><strong>Prog. Sequêncial</strong> - N comandos executados um após o outro por um único processador;</li>
+            <br>
+            <li><strong>Prog. Concorrene</strong> - Programa particionado em <i>threads</i>, executadas randomicamente por 1 ou mais processadores.</li>
+        </ul>
+        <p>Dessa forma, a programação conorrente está relacionada com a paralela, porém, focando na interação e comunicação entre as diferentes tarefas, além do acesso concorrente aos recursos computacionais. Exaltando aspectos que visam o <strong>aumento do desempenho</strong>, pois aumenta-se a quantidade de tarefas sendo executadas em determinado período de tempo.</p>
+        <p>Em alguns sistemas concorrentes, a comunicação entre os componentes é implicita (escondida do programador), enuanto em outras, é explicita. A comunicação explicita pode ser dividida em 2 classes:</p>
+        <ul>
+            <li><strong>Memória Compartilhada</strong> - Uso de recursos computacionais;</li>
+            <br>
+            <li><strong>Troca de Mensagem</strong> - Uso de recursos da rede.</li>
+        </ul>
+        <hr>
+        <h2>Processos</h2>
+        <p>Como dito anteriormente, em termos computacionais, um processo é tido como <strong>um programa ou série de comandos em execução</strong> em uma máquina, o qual possui um PID (identificador único) e capacidade de executar somente um processo a cada instante. Logo, em um sistema operacional por exemplo, onde vários processos são startados, estes irão se alternar em períodos de tempo no processador (um por vez), de forma que ao aumentar a quantidade de processadores, mais processos poderão ser executados simultaneamente.</p>
+        <p>Compreenda que em termos computacionais, <strong>um processador pode executar N processos em um período de tempo, mas apenas 1 processo por instante</strong>:</p>
+        <ul>
+            <li><strong>Instante</strong> - Execução única e não divisível;</li>
+            <br>
+            <li><strong>Tempo</strong> - Período divisível</li>
+        </ul>
+        <p>Essa etapa de executar/escolher qual processo será executado, é realizado pelo <strong>escalonador</strong>, que como dito, seleciona quais processos da fila serão postos para execução a seguir, no processador. Este, conta com o auxílio de um <stron>algoritmo</stron> que define a ordem de execução dos processos através de uma fila que será gerenciada por prioridade ou <i>deadline</i>. Neste contexto, todos os processos tidos como críticos ou do próprio S.O., possuem uma prioridade de execução sobre os demais. Diante disso, são trabalhados da seguinte forma:</p>
+        <img  src = "https://slideplayer.com/slide/6972594/24/images/12/Job+and+Process+Status+Hold+Admitted+Finished+Interrupt+Exit+Ready.jpg" >
+        <p>Essa troca de "estados" de um processo, é chamada de <strong>preempção</strong>, de forma que o contexto/dados do processo que sofreu a preempção, é salvo para retornar a execução posteriormente.</p>
+        <p>O escalonamento, contexto que define o que será executado pelo processador, pode ser realizado por:</p>
+        <ul>
+            <li><strong>Processo</strong> - Escalondor aloca tempo para a execução dos processos, que definem como usar este tempo para executar suas threads.</li>
+            <br>
+            <li><strong>Thread</strong> - Escalondor define a ordem na qual as threads serão executadas.</li>
+        </ul>
+        <hr>
+        <h2>Threads</h2>
+        <p>As linhas de execução ou <i>threads</i> são <strong>atividades executadas por um processo</strong>. Logo, um processo pode ter uma ou mais threads. Essas, por responderem ao mesmo processo, compartilham <strong>recursos e memória</strong>.</p>
+        <p>Cada instância da JVM corresponde a um processo do sistema hospedeiro. Logo, é compreensível que é trabalhado exclusivamente com threads em aplicações e programas Javas. Ao ser iniciada, a JVM executa o <i>"main()"</i> na thread principal e a partir desta, novas threads podem ser criadas e executadas. Estas então, irão compartilhar memória, arquivos e outras formas de recursos do sistema e computador.</p>
+        <p>Este coneito é aplicado através da classe <strong>java.lang.thread</strong> Segue-se então o seguinte parâmetro:</p>
+        <pre>
+    <strong>java.lang.thread
+    
+    thread</strong> HelloThread = <strong>new thread</strong>(hello,hello);
+        </pre>
+        <p>Em outras palavras, pode-se dizer que foi criado um objeto <i>"HelloThread"</i> que responde à classe <i>Thread</i>. Após tela instanciado, devemos executar esta thread criada através do comando:</p>
+        <pre>
+    &lt;objeto><strong>.start();
+    HelloThread.start()</strong>;
+        </pre>
+        <p>Portanto, tendo compreendido os termos sobre prog. conorrente e threads, neste caso, podemos perceber que ao startar o <i>"main()"</i>, ele será executado e em dado momento, executará a thread <i>"HelloThread"</i> em paralelo/concorrência ao <i>"main*()"</i>. Ou seja, ambos <i>"main()"</i> e <i>"HelloThread"</i> estarão executamdp <strong>ao mesmo tempo</strong>. Logo, temos duas execuções rodando em um dado momento.</p>
+        <p>Analise então o seguinte caso, onde uma threads será criada (HelloWorld) e posteriomente, posta em execução:</p>
+        <pre>
+    <strong>================ Classe - HelloWorld ================</strong>
+    
+    <strong>public class</strong> HelloWorld <strong>implements Runnable{
+        //Methods
+        public void</strong> printar(){
+            <strong>System.out.println</strong>("Hello World...\n");
+        }
+	
+        <strong>//Run Method
+        @Override
+        public void run() {
+            this.</strong>printar();
+
+        }
+        
+    }
+    
+    
+    <strong>================ Principal - Main ================</strong>
+    
+    <strong>public class Main {
+	public static void main(String[] args) {
+            //Objects</strong> 
+            <strong>HelloWorld</strong> Hello = <strong>new HelloWorld();</strong>
+            
+            <strong>//Threads
+            Thread</strong> ThreadHello = <strong>new Thread</strong>(Hello,"Hello World");
+
+            <strong>//Execute
+            System.out.println</strong>("-> Thread: "+ThreadHello<strong>.getName());</strong>
+            ThreadHello<strong>.start();</strong>
+	}
+    }
+        </pre>
+        <p>Iremos então debugar este min programa... Perceba que então, uma classe foi criada e posta com a extensão <strong><i>implements Runnable</i></strong>, o qual indicará que os comandos desta classe, serão trabalhados como thread. Ainda nesta classe, foi criado um metodo para simplesmente prinar uma informação de <i>Hello</i> na tela e logo em seguida, um outro método foi criado e destacado como <strong><i>Run Method</i></strong>. Este indica o método de execução desta thread enuanto estiver na <i>main()</i>. Neste método então, nos iremos inserir todos os demais métodos que a classe executará.</p>
+        <p>Já na <i>main()</i>, trabalhamos da thread como uma classe comuno, instanciando-a e criando um objeto. Em seu script de execução é dado o comando <i><stron>.start()</stron></i> que chamará o método <i>run()</i> da classe e executará os métodos dentro dele.</p>
+        <p>Perceba também o uso do comando <i><strong>getName()</strong></i>, este funciona meramente como informativo, mas importante informativo. O qual tem a função de exibir o nome da thread criada (utilizado de forma inteligente, para podermos identificar o que está acontecendo durante a execução do programa.) e que foi definido no seu momento de criação de thread.</p>
+        <hr>
+        <h2>Herança</h2>
+        <p>Foi apresentado o conceito de interface com o uso de threads (<i><strong>implements Runnable</strong></i>) a qual é melhor utilizada ´para execução. Porém, existe outro conceito que também pode ser usado em threads, que terá o mesmo trabalho e de forma mais simplória e dinâmica, porém, mais custoso. Na prática, utilizaremos da <strong>herança</strong> em nossas implementações.</p>
+        <pre>
+    <strong>public class</strong> &lt;classe> <strong>extends Threads{
+    
+    }</strong>
+    
+        </pre>
+        <p>Com isso, já indicamos de forma direta que esta classe em questão, será tarabalhada como uma thread. Logo, não é mais necessário instaniar esta na "<i>main()</i>". Além disso, outros métodos semelhantes ao <i>"start()"</i> podem ser implementados nas threads, como por exemplo o <i>"stop()"</i> e <i>"sleep()"</i>. Segue abaixo os principais métodos utilizados por uma thread:</p>
+        <ul>
+            <li><strong>Obter Referência</strong> - <i>currentThread();</i></li>
+            <br>
+            <li><strong>Suspender Execução</strong> - <i>sleep(long);, interrupt()</i>;</li>
+            <br>
+            <li><strong>Aguardar Fim</strong> - <i>join()</i>;</li>
+            <br>
+            <li><strong>Verificar Estado</strong> - <i>isAlive();, isInterrupt()</i>;</li>
+            <br>
+            <li><strong>Liberar Processador</strong> - <i>yield()</i>;</li>
+            <br>
+            <li><strong>Destruir Thread</strong> - <i>destroy()</i>;</li>
+            <br>
+        </ul>
+        <hr>
+        <h2>Prioridades de Threads</h2>
+        <p>Como explicado anteriormente o conceito de escalonador que define o processo a ser executado, nas threads este conceito funciona por <strong>prioridade</strong> que variam de 1 a 10 (tendo prioridade 5 por default). Dessa forma, threads filhas herdam a mesma prioridade de seu criador.</p>
+        <p>Também é possível <strong>definir a prioridade</strong> de uma thread, a partir do comando <strong><i>setPriority(int)</i></strong> e da mesma forma, obter o valor de prioridade da thread, pelo comando <strong><i>getPrority()</i></strong>.</p>
+        <ul>
+            <li><strong>OBS: Threads com mesma prioridade, sçao escalonadas por <i>round-robin</i></strong>.</li>
+            <br>
+            <li><strong>OBS: Prioridades não são garantidas de execução, mas sim de uma maior probabilidade de execução.</strong></li>
+        </ul>
+    </body>
+</html>
