@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Desempenho - Prog. Conorrente</title>
+        <meta name="Desempenho - Prog. Concorrente" content="Este é um site de estudos sobre a Prog. Concorrente">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <h1>Desempenho - Prog. Concorrente</h1>
+        <p>Iremos agora estudar os conceitos de <strong>análise de desempenho e custo de um programa</strong> à ser executado. Para isso, utilizaremos do <i><strong>benchmark</strong></i> sendo: <strong>o ato de executar um programa, afim de avaliar o desempenho relativo, executando testes e ensaios neste.</strong> O seu custo está associado com a performance de hardware para com aquele programa.</p>
+        <p>Para então que possamos calcular este custo, utilizamos da fórmula de <strong>speedup</strong>, o qual compara o desempenho entre 2 sistemas através do <strong>tempo de execução e o comparando</strong>.</p>
+        <pre>
+    S = T1/T2
+    
+    onde
+    
+    S = Speedup
+    
+    T1 = Tempo Serial
+    
+    T2 = Tempo Paralelo
+        </pre>
+        <p>A partir deste resultado, podemos ter casos com <strong>SP > 1</strong> (desempenho maior que 100%), <strong>SP &lt; 1</strong> (desempenho menor que 100%) e/ou <strong>SP=1</strong>.</p>
+        <p>Tendo esta teoria compreendida, temos então a <strong>lei de Amdahl</strong>, a qual auxilia na obtenção do speedup máximo de um programa, através da fórmula:</p>
+        <pre>
+    S = TS / (1-p) + p/n
+    
+    onde
+    
+    TS = Tempo de execução
+    
+    P - Percentual paralelizável (1 = 100%)
+    
+    N = Número de processadores
+        </pre>
+        <p>Além dessas fórmulas, temos também às <strong>técnicas de avaliação de desempenho</strong>, sendo elas:</p>
+        <ul>
+            <li><strong>Monitoramento</strong> - Avaliar medidas interns e externas à aplicação paralela</li>
+            <br>
+            <li><strong>Instrumentação</strong> - Modificar o código fonte para a coleta de desempenho</li>
+            <br>
+            <li><strong>Tracing</strong> - Registrar a entrada e saída do processador em regiões do código</li>
+            <br>
+            <li><strong>Relógio</strong> - Medir tempo para coletar o valor de tempo em instantes específicos</li>
+        </ul>
+        <p>Entre essas, estudaremos o de relógio, onde devemos implementar algum alerta ou variável que informe o inicio de execução do sistema e ao fim, coletarmos seu tempo final e tempo total de duração (lembrando que este coneito não se submete apenas ao incio e fim do programa, mas também a momentos de execução de código, estando livre ao programador cronometrar a execução desejada). Sua implementação ocorrerá da seguinte maneira:</p>
+        <pre>
+    public static void main (String{} args){
+        long tempo, inicio = System.currentTimeMillis();
+        .
+        .
+        .
+        tempo = System.currentTimeMillis() - inicio;
+        System.out.println("--> "+ tempo +" milisegundos");
+    }
+        </pre>
+        <p>Perceba então que foi criado 2 variáveis, uma de <i>inicio</i> e de <i>tempo</i>, juntas ao comando <i><stron> System.currentTimeMillis()</stron></i>. Este comando verifica o horário atual através do sistema operacional da máquina e o armazena n variável desejada. Ao fim, basta solicitarmos este comando novamente subtraindo-o do tempo inicial.</p>
+    </body>
+</html>
